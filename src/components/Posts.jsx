@@ -1,29 +1,11 @@
-import axios from "axios";
 import React from "react";
-import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
 
 const Posts = ({ loading, posts }) => {
-  const [openComment, setOpenComment] = React.useState(false);
-  const [userId, setUserId] = React.useState(null);
-  const [commentData, setCommentData] = React.useState([]);
-  const [renderedPosts, setRenderedPosts] = React.useState(posts);
+  const [renderedArray, setRenderedArray] = React.useState([]);
 
-  // const getCommentId = (id) => {
-  //   setUserId(id);
-  // };
-
-  // React.useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await axios.get(
-  //       `https://jsonplaceholder.typicode.com/posts/${userId}/comments`
-  //     );
-  //     setCommentData(res.data);
-  //   };
-  //   fetchData();
-  // }, [userId]);
-
-  if (loading) return <h2>Loading...</h2>;
+  React.useEffect(() => {
+    setRenderedArray(posts);
+  }, [posts]);
 
   // delete function
   const onDelete = async (id) => {
@@ -34,8 +16,8 @@ const Posts = ({ loading, posts }) => {
         if (res.status !== 200) {
           return;
         } else {
-          setRenderedPosts(
-            renderedPosts.filter((post) => {
+          setRenderedArray(
+            renderedArray.filter((post) => {
               return post.id !== id;
             })
           );
@@ -45,6 +27,8 @@ const Posts = ({ loading, posts }) => {
         console.log(err);
       });
   };
+
+  if (loading) return <h2>Loading...</h2>;
 
   return (
     <div className="h-full p-5 bg-[#ff5170]">
@@ -61,7 +45,7 @@ const Posts = ({ loading, posts }) => {
           </tr>
         </thead>
         <tbody>
-          {renderedPosts.map((post, index) => (
+          {renderedArray.map((post, index) => (
             <tr
               className={index % 2 === 0 ? "bg-white" : "bg-gray-300"}
               key={post?.id}
@@ -102,8 +86,6 @@ const Posts = ({ loading, posts }) => {
           ))}
         </tbody>
       </table>
-
-      {openComment && <Modal />}
     </div>
   );
 };

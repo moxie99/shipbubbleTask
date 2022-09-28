@@ -26,7 +26,14 @@ const postSlice = createSlice({
     [getPosts.rejected]: (state, action) => {
       state.loading = false;
     },
+    deletePosts: (state, action) => {
+      const { id } = action.payload;
+      const existingPost = state.find((post) => post.id === id);
+      if (existingPost) {
+        return state.filter((post) => post.id !== id);
+      }
+    },
   },
 });
-
+export const { deletePosts } = postSlice.actions;
 export default postSlice.reducer;
