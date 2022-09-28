@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.tabPanel {
+/* .tabPanel {
   @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3;
+} */
+
+.textStyle {
+  @apply p-3 text-sm font-semibold tracking-wide text-center text-[#ff5170];
+}
+.tableData {
+  @apply w-1/5 p-3 text-sm text-[#3734a7] text-justify;
 }
