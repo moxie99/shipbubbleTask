@@ -1,7 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Dialog } from "@headlessui/react";
-import { Box, Button, Modal, Typography } from "@mui/material";
 
 const Users = ({ users, loading }) => {
   const { posts } = useSelector((state) => state.post);
@@ -11,7 +9,6 @@ const Users = ({ users, loading }) => {
 
   const userPostArray = [];
   const getPostsById = (id) => {
-    console.log(id);
     posts.map((post) => (post.userId === id ? userPostArray.push(post) : null));
     setModalContent(userPostArray);
   };
