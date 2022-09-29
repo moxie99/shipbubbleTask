@@ -12,6 +12,16 @@ const postSlice = createSlice({
     posts: [],
     loading: false,
   },
+  reducers: {
+    deletePost: (state, action) => {
+      const { id } = action.payload;
+      state.posts = state.posts.filter((post) => post.id !== id);
+    },
+    addPost: (state, action) => {
+      state.posts.push(action.payload);
+    },
+  },
+
   extraReducers: {
     // pending
     [getPosts.pending]: (state, action) => {
@@ -26,14 +36,7 @@ const postSlice = createSlice({
     [getPosts.rejected]: (state, action) => {
       state.loading = false;
     },
-    deletePosts: (state, action) => {
-      const { id } = action.payload;
-      const existingPost = state.find((post) => post.id === id);
-      if (existingPost) {
-        return state.filter((post) => post.id !== id);
-      }
-    },
   },
 });
-export const { deletePosts } = postSlice.actions;
+export const { deletePost, addPost } = postSlice.actions;
 export default postSlice.reducer;

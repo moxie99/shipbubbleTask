@@ -32,8 +32,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1 className="my-10 text-3xl font-bold text-red-800 underline">
+    <div className="flex flex-col items-center justify-center">
+      <h1 className="my-10 text-3xl text-[#3734a7] font-bold">
         Welcome To My Blog
       </h1>
       <Tab.Group>
