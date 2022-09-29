@@ -4,8 +4,6 @@ import { Tab } from "@headlessui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "./redux/Features/postSlice";
 import { getUsers } from "./redux/Features/userSlice";
-import { Circle } from "rc-progress";
-import { useTable } from "react-table";
 import Posts from "./components/Posts";
 import Pagination from "./components/Pagination";
 import Users from "./components/Users";
@@ -15,12 +13,12 @@ function App() {
   const { users } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [postsPerView, setpostPerView] = React.useState(10);
+  const [postsPerView] = React.useState(10);
 
   React.useEffect(() => {
     dispatch(getPosts());
     dispatch(getUsers());
-  }, []);
+  }, [dispatch]);
 
   const lastPostIndex = currentPage * postsPerView;
   const firstPostIndex = lastPostIndex - postsPerView;

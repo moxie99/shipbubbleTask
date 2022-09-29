@@ -3,7 +3,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../redux/Features/postSlice";
 import AddPosts from "./AddPosts";
-import Modal from "./Modal";
 
 const Posts = ({ loading, posts }) => {
   const [postId, setPostId] = React.useState(null);
@@ -42,20 +41,24 @@ const Posts = ({ loading, posts }) => {
       <div className="flex items-center justify-center">
         <h1 className="mb-2 text-xl text-[#3734a9] font-bold">All Post</h1>
       </div>
-      <table className="w-full">
-        <thead className="bg-[#3734a9] border-b-2 border-[#ff5170]">
-          <tr>
-            <th className="textStyle">UserId</th>
-            <th className="textStyle">Id</th>
-            <th className="textStyle">Title</th>
-            <th className="textStyle">Body</th>
-            <th className="textStyle">Action</th>
+      <table className="flex flex-row flex-no-wrap w-full my-5 overflow-hidden rounded-lg sm:bg-white sm:shadow-lg">
+        <thead className="bg-[#3734a9] border-b-2 border-[#ff5170] hidden">
+          <tr className="flex flex-col mb-2 rounded-l-lg flex-no wrap sm:table-row sm:rounded-none sm:mb-0">
+            <th className="p-3 text-left textStyle">UserId</th>
+            <th className="p-3 text-left textStyle">Id</th>
+            <th className="p-3 text-left textStyle">Title</th>
+            <th className="p-3 text-left textStyle width-[110px]">Body</th>
+            <th className="p-3 text-left textStyle">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="flex-1 sm:flex-none">
           {posts.map((post, index) => (
             <tr
-              className={index % 2 === 0 ? "bg-white" : "bg-gray-300"}
+              className={
+                index % 2 === 0
+                  ? "bg-white flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0"
+                  : "bg-gray-300 flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0"
+              }
               key={post?.id}
             >
               <td className="w-24 p-3 text-sm text-[#3734a7] text-justify">

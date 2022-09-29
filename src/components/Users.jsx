@@ -14,7 +14,7 @@ const Users = ({ users, loading }) => {
   };
 
   return (
-    <div className="h-full p-5 bg-[#ff5170] md:flex flex-col flex-1">
+    <div className="h-full sm:w-full p-5 bg-[#ff5170] md:flex flex-col flex-1">
       <h1 className="mb-2 text-xl">All Users</h1>
 
       <table>
@@ -33,7 +33,7 @@ const Users = ({ users, loading }) => {
               key={index}
               className={index % 2 === 0 ? "bg-white" : "bg-gray-300"}
             >
-              <td className="tableData">
+              <td className="w-1/6 md:tableData">
                 <a
                   href="!#"
                   className="font-light hover:text-[#ff5170]"
@@ -45,24 +45,24 @@ const Users = ({ users, loading }) => {
                   {user.name}
                 </a>
               </td>
-              <td className="tableData">
+              <td className="w-1/6 md:tableData">
                 <a href="!#" className="font-light hover:text-[#ff5170]">
                   {user.username}
                 </a>
               </td>
-              <td className="tableData">
+              <td className="w-1/6 md:tableData">
                 <a href="!#" className="font-light hover:text-[#ff5170]">
                   <span className="p-2.5 text-xs font-medium uppercase tracking-wider bg-[#ff5170] bg-opacity-30 rounded-full">
                     {user.email}
                   </span>
                 </a>
               </td>
-              <td className="tableData">
+              <td className="w-1/6 md:tableData">
                 <a href="!#" className="font-light hover:text-[#ff5170]">
                   {user.phone}
                 </a>
               </td>
-              <td className="tableData md:flex-1">
+              <td className="w-1/6 md:tableData">
                 <a href="!#" className="font-light hover:text-[#ff5170]">
                   {user.address.suite +
                     " " +
