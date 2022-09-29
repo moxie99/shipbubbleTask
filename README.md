@@ -10,3 +10,5 @@ Stack: ReactJs, Redex, HeroIcons, Headless UI, Material Ui, TailwindCSS, CSS
 3. Video walkthrough on loom : https://www.loom.com/share/bed7312046a64669a72f9f4db76443e0
 
 4. Redex toolkit was used to keep state across the app.
+
+5. The two frequent colors across the app were strategically selected based ob the theme colors on the compnay's website.
