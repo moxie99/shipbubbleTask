@@ -8,3 +8,5 @@ Stack: ReactJs, Redex, HeroIcons, Headless UI, Material Ui, TailwindCSS, CSS
 2. Redux Async Function used for the base URL to fetch post which was in turn used for the users as well
 
 3. Video walkthrough on loom : https://www.loom.com/share/bed7312046a64669a72f9f4db76443e0
+
+4. Redex toolkit was used to keep state across the app.
